@@ -1,0 +1,245 @@
+/* === Base Reset === */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background: linear-gradient(180deg, #edebeb 0%, #f0f0f5 100%);
+  color: #1f2937;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === Header === */
+header {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+}
+
+header h1 {
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #ff0000;
+  letter-spacing: -0.5px;
+}
+
+#search {
+  padding: 6px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  outline: none;
+  width: 550px;        /* ↓ reduced width */
+  height: 50px;        /* ↓ compact height */
+  transition: all 0.2s;
+}
+
+#search:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.25);
+  width: 550px;        /* smooth expand on focus */
+}
+
+
+/* === Tool Cards === */
+.tool {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  margin: 1.5rem auto;
+  padding: 1.5rem;
+  max-width: 720px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tool:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+.tool h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #111827;
+}
+
+/* === Form Elements === */
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 0.95rem;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  outline: none;
+  width: 100%;
+  margin-bottom: 0.75rem;
+  background-color: #fff;
+  transition: all 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+/* === Buttons === */
+button {
+  background: linear-gradient(90deg, #4f46e5, #6366f1);
+  color: white;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin: 4px 4px 8px 0;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #4338ca, #4f46e5);
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+  background: linear-gradient(90deg, #3730a3, #4f46e5);
+}
+
+button:focus-visible {
+  outline: 3px solid rgba(99, 102, 241, 0.4);
+}
+
+/* === Results, Labels & Layout === */
+label {
+  display: block;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.4rem;
+}
+
+.result {
+  margin-top: 12px;
+  font-weight: 600;
+  color: #1e3a8a;
+  background: #eef2ff;
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+
+/* === Textarea Special === */
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* === Footer === */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  border-top: 1px solid #e5e7eb;
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-top: 3rem;
+}
+
+/* === Responsiveness === */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  #search {
+    width: 100%;
+  }
+  .tool {
+    margin: 1rem;
+    padding: 1.25rem;
+  }
+  button {
+    width: 100%;
+  }
+}
+
+/* === Theme Toggle === */
+#theme-toggle {
+  background: none;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+  background: #f3f4f6;
+}
+
+.dark-mode body,
+body.dark-mode {
+  background: linear-gradient(180deg, #0f172a, #1e293b);
+  color: #737373;
+}
+
+body.dark-mode .tool {
+  background: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+body.dark-mode header {
+  background: rgba(15, 23, 42, 0.9);
+  border-color: #334155;
+}
+
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+  background: #0f172a;
+  color: #737373;
+  border-color: #475569;
+}
+
+body.dark-mode button {
+  background: linear-gradient(90deg, #4338ca, #4f46e5);
+}
+
+body.dark-mode .result {
+  background: #000000;
+  color: #9b9b9b;
+}
+
+/* === Force all text red in dark mode === */
+body.dark-mode,
+body.dark-mode * {
+  color: #ff0000 !important;
+}
+
+body.dark-mode button {
+  background: linear-gradient(90deg, #4338ca, #4f46e5) !important;
+  color: #000000 !important;
+  border: none !important;
+}
+
+body.dark-mode #search {
+  color: #ffffff !important;
+}
